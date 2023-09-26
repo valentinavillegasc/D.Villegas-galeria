@@ -8,26 +8,26 @@ const {
 } = require("../controllers/index");
 
 //Traer todos los colibries
-colibriRouter.get("/", (req, res) => {
+colibriRouter.get("/", async (req, res) => {
   const { name } = req.query;
   if (name) {
-    const colibries = getColibriByName(name);
+    const colibries = await getColibriByName(name);
     if (colibries.error) return res.status(404).json(colibries);
     return res.status(200).json(colibries);
   } else {
-    const allColibries = getAllColibries();
+    const allColibries = await getAllColibries();
     return res.status(200).json(allColibries);
   }
 });
 
 //Agregar un colibri
-colibriRouter.post("/", (req, res) => {
+colibriRouter.post("/", async (req, res) => {
   const { id, name, image, fichaTecnica } = req.body;
   try {
     if (!id || !name || !image || !fichaTecnica)
       throw Error("Falta información");
     else {
-      const newColibri = createColibri(id, name, image, fichaTecnica);
+      const newColibri = await createColibri(id, name, image, fichaTecnica);
       return res.status(200).json(newColibri);
     }
   } catch (error) {
@@ -36,10 +36,11 @@ colibriRouter.post("/", (req, res) => {
 });
 
 //Actualizar un colibri
-colibriRouter.put("/", (req, res) => {
-  const { id, name, image, fichaTecnica } = req.body;
+colibriRouter.put("/:id", async (req, res) => {
+  const { id } = req.params;
+  const { name, image, fichaTecnica } = req.body;
   if ((id && name) || image || fichaTecnica) {
-    const colibriUpdate = updateColibri({ id, name, image, fichaTecnica });
+    const colibriUpdate = await updateColibri(id, name, image, fichaTecnica);
 
     if (colibriUpdate.error) return res.status(404).json(colibriUpdate);
     else {
@@ -49,10 +50,10 @@ colibriRouter.put("/", (req, res) => {
 });
 
 //Eliminar colibri
-colibriRouter.delete("/:id", (req, res) => {
+colibriRouter.delete("/:id", async (req, res) => {
   const { id } = req.params;
   if (id) {
-    const colibrideleted = deleteColibri(id);
+    const colibrideleted = await deleteColibri(id);
     if (colibrideleted.error) return res.status(404).json(colibrideleted);
     else {
       return res.status(200).json(colibrideleted);

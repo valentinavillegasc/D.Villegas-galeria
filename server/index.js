@@ -1,4 +1,4 @@
-const app = require("./src/routes/index");
+const app = require("./src/app");
 const { database } = require("./src/db");
 
 database.sync();
