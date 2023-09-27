@@ -1,11 +1,9 @@
 const colibriRouter = require("express").Router();
-const {
-  getAllColibries,
-  getColibriByName,
-  createColibri,
-  updateColibri,
-  deleteColibri,
-} = require("../controllers/index");
+const getAllColibries = require("../controllers/getAllColibries");
+const getColibriByName = require("../controllers/getColibriByName");
+const createColibri = require("../controllers/createColibri");
+const updateColibri = require("../controllers/updateColibri");
+const deleteColibri = require("../controllers/deletecolibri");
 
 //Traer todos los colibries
 colibriRouter.get("/", async (req, res) => {
