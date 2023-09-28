@@ -1,9 +1,9 @@
 const colibriRouter = require("express").Router();
-const getAllColibries = require("../controllers/getAllColibries");
-const getColibriByName = require("../controllers/getColibriByName");
-const createColibri = require("../controllers/createColibri");
-const updateColibri = require("../controllers/updateColibri");
-const deleteColibri = require("../controllers/deletecolibri");
+const getAllColibries = require("../controllers/Colibries/getAllColibries");
+const getColibriByName = require("../controllers/Colibries/getColibriByName");
+const createColibri = require("../controllers/Colibries/createColibri");
+const updateColibri = require("../controllers/Colibries/updateColibri");
+const deleteColibri = require("../controllers/Colibries/deletecolibri");
 
 //Traer todos los colibries
 colibriRouter.get("/", async (req, res) => {
@@ -20,12 +20,18 @@ colibriRouter.get("/", async (req, res) => {
 
 //Agregar un colibri
 colibriRouter.post("/", async (req, res) => {
-  const { id, name, image, fichaTecnica } = req.body;
+  const { ColeccionId, id, name, image, fichaTecnica } = req.body;
   try {
-    if (!id || !name || !image || !fichaTecnica)
+    if (!id || !name || !image || !fichaTecnica || !ColeccionId)
       throw Error("Falta información");
     else {
-      const newColibri = await createColibri(id, name, image, fichaTecnica);
+      const newColibri = await createColibri(
+        id,
+        name,
+        image,
+        fichaTecnica,
+        ColeccionId
+      );
       return res.status(200).json(newColibri);
     }
   } catch (error) {
