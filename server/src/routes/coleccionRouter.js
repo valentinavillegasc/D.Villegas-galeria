@@ -26,10 +26,10 @@ coleccionRouter.post("/", uploadMiddleware, async (req, res) => {
     const newColeccion = await createColeccion(name, imageBuffer, description);
     res
       .status(200)
-      .json({ message: "Imagen subida exitosamente", data: newColeccion });
+      .json({ message: "Colección creada exitosamente", data: newColeccion });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ error: "Error al subir la imagen" });
+    res.status(500).json({ error: "Error al crear la colección" });
   }
 });
 

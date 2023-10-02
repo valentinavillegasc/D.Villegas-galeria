@@ -9,6 +9,9 @@ const path = require("path");
 
 const createColeccion = async (name, imageBuffer, description) => {
   try {
+    if (!name || !imageBuffer || !description)
+      throw new Error("Falta información");
+
     // Crea un archivo temporal con el contenido del Buffer
     const tempFilePath = path.join(__dirname, "tempFile.jpg");
     await fs.writeFile(tempFilePath, imageBuffer);

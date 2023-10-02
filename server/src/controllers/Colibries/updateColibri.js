@@ -1,4 +1,4 @@
-const cloudinary = require("cloudinary").v2;
+const cloudinary = require("../../Service/cloudinary");
 const { Colibri } = require("../../db");
 
 const updateColibri = async (id, name, image, fichaTecnica) => {

@@ -4,6 +4,7 @@ const getColibriByName = require("../controllers/Colibries/getColibriByName");
 const createColibri = require("../controllers/Colibries/createColibri");
 const updateColibri = require("../controllers/Colibries/updateColibri");
 const deleteColibri = require("../controllers/Colibries/deletecolibri");
+const uploadMiddleware = require("../handlers/coleccionHandler");
 
 //Traer todos los colibries
 colibriRouter.get("/", async (req, res) => {
@@ -19,37 +20,37 @@ colibriRouter.get("/", async (req, res) => {
 });
 
 //Agregar un colibri
-colibriRouter.post("/", async (req, res) => {
-  const { ColeccionId, id, name, image, fichaTecnica } = req.body;
+colibriRouter.post("/", uploadMiddleware, async (req, res) => {
   try {
-    if (!id || !name || !image || !fichaTecnica || !ColeccionId)
-      throw Error("Falta información");
-    else {
-      const newColibri = await createColibri(
-        id,
-        name,
-        image,
-        fichaTecnica,
-        ColeccionId
-      );
-      return res.status(200).json(newColibri);
-    }
+    const { ColeccionId, name, fichaTecnica } = req.body;
+    const image = req.file.buffer;
+    const newColibri = await createColibri(
+      name,
+      image,
+      fichaTecnica,
+      ColeccionId
+    );
+    res
+      .status(200)
+      .json({ message: "Colibrí creado exitosamente", data: newColibri });
   } catch (error) {
-    return res.status(404).send(error.message);
+    console.log(error);
+    res.status(404).json({ error: "Error al crear colibrí" });
   }
 });
 
 //Actualizar un colibri
-colibriRouter.put("/:id", async (req, res) => {
-  const { id } = req.params;
-  const { name, image, fichaTecnica } = req.body;
-  if ((id && name) || image || fichaTecnica) {
-    const colibriUpdate = await updateColibri(id, name, image, fichaTecnica);
-
-    if (colibriUpdate.error) return res.status(404).json(colibriUpdate);
-    else {
-      return res.status(200).json(colibriUpdate);
+colibriRouter.put("/:id", uploadMiddleware, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, image, fichaTecnica } = req.body;
+    if ((id && name) || image || fichaTecnica) {
+      const colibriUpdate = await updateColibri(id, name, image, fichaTecnica);
+      res.status(200).json(colibriUpdate);
     }
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ error: "Error al actualizar" });
   }
 });
 
@@ -60,7 +61,7 @@ colibriRouter.delete("/:id", async (req, res) => {
     const colibrideleted = await deleteColibri(id);
     if (colibrideleted.error) return res.status(404).json(colibrideleted);
     else {
-      return res.status(200).json(colibrideleted);
+      return res.status(200).json({ message: "Eliminado correctamente" });
     }
   } else {
     return res.status(500).send(error.message);
