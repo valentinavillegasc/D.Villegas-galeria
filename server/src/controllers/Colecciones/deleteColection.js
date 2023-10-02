@@ -4,7 +4,7 @@ const deleteColeccion = async (id) => {
   try {
     const coleccion = await Coleccion.destroy({ where: { id } });
     if (!coleccion) {
-      throw Error("Colección inexistente");
+      throw new Error("Colección inexistente");
     } else {
       return coleccion;
     }

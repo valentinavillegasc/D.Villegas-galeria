@@ -5,6 +5,7 @@ const getAllColecciones = require("../controllers/Colecciones/getAllColecciones"
 const getColeccionByName = require("../controllers/Colecciones/getColeccionByName");
 const updateColeccion = require("../controllers/Colecciones/updateColeccion");
 const uploadMiddleware = require("../handlers/coleccionHandler");
+
 //Traer coleccion por nombre o todas
 coleccionRouter.get("/", async (req, res) => {
   const { name } = req.params;
@@ -22,12 +23,10 @@ coleccionRouter.post("/", uploadMiddleware, async (req, res) => {
   try {
     const { name, description } = req.body;
     const imageBuffer = req.file.buffer;
-    console.log(name);
-    console.log(description);
-    console.log(imageBuffer.length);
     const newColeccion = await createColeccion(name, imageBuffer, description);
-
-    res.json({ message: "Imagen subida exitosamente", data: newColeccion });
+    res
+      .status(200)
+      .json({ message: "Imagen subida exitosamente", data: newColeccion });
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Error al subir la imagen" });
@@ -35,24 +34,31 @@ coleccionRouter.post("/", uploadMiddleware, async (req, res) => {
 });
 
 //Actualizar coleccion
-coleccionRouter.put("/:id", async (req, res) => {
-  const { id } = req.params;
-  const { name, image, description } = req.body;
-  if ((id && name) || image || description) {
+coleccionRouter.put("/:id", uploadMiddleware, async (req, res) => {
+  try {
+    const { id } = req.params;
+    const { name, image, description } = req.body;
+    console.log(name);
+    console.log(image);
+    console.log(description);
     const coleccion = await updateColeccion(id, name, image, description);
-    if (coleccion.error) return res.status(404).json(coleccion);
-    else return res.status(200).json(coleccion);
+    res.status(200).json({ message: "Actualizada!", data: coleccion });
+  } catch (error) {
+    console.log(error);
+    res.status(404).json({ error: "Error al actualizar" });
   }
 });
 //Eliminar coleccion
 coleccionRouter.delete("/:id", async (req, res) => {
-  const { id } = req.params;
-  if (id) {
+  try {
+    const { id } = req.params;
     const coleccionDeleted = await deleteColeccion(id);
-    if (coleccionDeleted.error) return res.status(404).json(coleccionDeleted);
-    else return res.status(200).json(coleccionDeleted);
-  } else {
-    return res.status(500).send(error.message);
+    return res
+      .status(200)
+      .json({ message: "Eliminada!", data: coleccionDeleted });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send(error.message);
   }
 });
 
