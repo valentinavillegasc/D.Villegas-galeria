@@ -5,6 +5,4 @@ const upload = multer({ storage: storage });
 
 const uploadMiddleware = upload.single("image");
 
-module.exports = {
-  uploadMiddleware,
-};
+module.exports = uploadMiddleware;

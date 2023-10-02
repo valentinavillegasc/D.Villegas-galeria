@@ -4,7 +4,7 @@ const deleteColeccion = require("../controllers/Colecciones/deleteColection");
 const getAllColecciones = require("../controllers/Colecciones/getAllColecciones");
 const getColeccionByName = require("../controllers/Colecciones/getColeccionByName");
 const updateColeccion = require("../controllers/Colecciones/updateColeccion");
-const coleccionHandler = require("../handlers/coleccionHandler");
+const uploadMiddleware = require("../handlers/coleccionHandler");
 //Traer coleccion por nombre o todas
 coleccionRouter.get("/", async (req, res) => {
   const { name } = req.params;
@@ -18,28 +18,21 @@ coleccionRouter.get("/", async (req, res) => {
   }
 });
 //Crear coleccion
-coleccionRouter.post(
-  "/",
-  coleccionHandler.uploadMiddleware,
-  async (req, res) => {
-    try {
-      const { name, description } = req.body;
-      const imageBuffer = req.file.buffer;
-      console.log(name);
-      console.log(description);
-      console.log(imageBuffer.length);
-      const newColeccion = await coleccionController.createColeccion(
-        name,
-        imageBuffer,
-        description
-      );
+coleccionRouter.post("/", uploadMiddleware, async (req, res) => {
+  try {
+    const { name, description } = req.body;
+    const imageBuffer = req.file.buffer;
+    console.log(name);
+    console.log(description);
+    console.log(imageBuffer.length);
+    const newColeccion = await createColeccion(name, imageBuffer, description);
 
-      res.json({ message: "Imagen subida exitosamente", data: newColeccion });
-    } catch (error) {
-      res.status(500).json({ error: "Error al subir la imagen" });
-    }
+    res.json({ message: "Imagen subida exitosamente", data: newColeccion });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Error al subir la imagen" });
   }
-);
+});
 
 //Actualizar coleccion
 coleccionRouter.put("/:id", async (req, res) => {
