@@ -5,7 +5,7 @@ const ColibriModel = require("./models/ColibriModel");
 const ColeccionModel = require("./models/ColeccionModel");
 const database = new Sequelize(
   `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/${DB_NAME}`,
-  { logging: false }
+  { logging: false, force: false }
 );
 ColeccionModel(database);
 ColibriModel(database);

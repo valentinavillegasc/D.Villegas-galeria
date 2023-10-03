@@ -18,7 +18,7 @@ module.exports = (database) => {
         allowNull: false,
       },
       fichaTecnica: {
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(500),
         allowNull: false,
       },
     },
