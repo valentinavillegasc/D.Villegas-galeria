@@ -10,7 +10,7 @@ export default function Landing() {
           <Link to="/biografia">
             <button className={style.button}>Biografía</button>
           </Link>
-          <Link to="exposicion">
+          <Link to="/home">
             <button className={style.button}>Exposición </button>
           </Link>
         </div>

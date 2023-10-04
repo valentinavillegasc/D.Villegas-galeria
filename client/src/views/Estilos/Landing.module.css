@@ -36,7 +36,7 @@ h1 {
 
 @media (max-width: 768px) {
   .landing {
-    height: 10 0vh;
+    height: 10vh;
     background-size: cover;
     background-position: center;
   }

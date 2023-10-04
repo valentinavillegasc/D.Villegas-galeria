@@ -1,0 +1,25 @@
+.navBar {
+  height: 5vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-image: url(/Users/user/Documents/GitHub/D.Villegas-galeria/client/assets/navBar.png);
+}
+
+.logo {
+  color: black;
+  font-size: xx-large;
+}
+
+.buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.button {
+  border: none;
+  padding: 10px;
+  border-radius: 7px;
+}
