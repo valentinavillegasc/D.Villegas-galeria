@@ -1,25 +1,71 @@
 .navBar {
-  height: 5vh;
+  height: 9vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding: 10px;
+  padding: 8px;
   margin-bottom: 20px;
   background-image: url(/Users/user/Documents/GitHub/D.Villegas-galeria/client/assets/navBar.png);
 }
 
 .logo {
   color: black;
-  font-size: xx-large;
+  font-size: 3.5rem;
+  margin-left: 2rem;
+  padding: 8px;
 }
 
 .buttons {
   display: flex;
-  gap: 5px;
+  gap: 10px;
+  padding: 3px;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  margin: 0.5rem;
+  margin-right: 1rem;
 }
 
 .button {
   border: none;
-  padding: 10px;
+  padding: 8px;
   border-radius: 7px;
+  color: white;
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+.hamburgerMenuButton {
+  padding: 2px;
+  font-size: 2rem;
+  color: rgb(255, 255, 255);
+  margin: 0.5rem;
+  margin-right: 1rem;
+  background: none;
+  border: none;
+}
+
+/*Media queries*/
+
+@media (max-width: 768px) {
+  .buttons {
+    display: none;
+  }
+
+  .hamburgerMenu {
+    display: block;
+  }
+  .logo {
+    font-size: 3rem;
+    margin-left: 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .hamburgerMenu {
+    display: none;
+  }
+
+  .buttons {
+    display: flex;
+  }
 }
