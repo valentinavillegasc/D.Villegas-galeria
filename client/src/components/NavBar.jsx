@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import style from "./Estilos/NavBar.module.css";
 import { Link } from "react-router-dom";
 import BurgerNav from "./BurgerNav";
-
+import logo from "../assets/firmaDVillegas.png";
 export default function NavBar() {
   const [isVisible, setIsVisible] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
 
   return (
     <div className={style.navBar}>
-      <h2 className={style.logo}>D. Villegas</h2>
+      <img src={logo} alt="" />
       <div
         className={style.hamburgerMenu}
         onClick={() => setIsVisible(!isVisible)}>
