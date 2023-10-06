@@ -4,6 +4,7 @@ const deleteColeccion = require("../controllers/Colecciones/deleteColection");
 const getAllColecciones = require("../controllers/Colecciones/getAllColecciones");
 const getColeccionByName = require("../controllers/Colecciones/getColeccionByName");
 const updateColeccion = require("../controllers/Colecciones/updateColeccion");
+const getColeccionById = require("../controllers/Colecciones/getColeccionById");
 const uploadMiddleware = require("../handlers/coleccionHandler");
 
 //Traer coleccion por nombre o todas
@@ -16,6 +17,17 @@ coleccionRouter.get("/", async (req, res) => {
   } else {
     const allColecciones = await getAllColecciones();
     return res.status(200).json(allColecciones);
+  }
+});
+
+//Traer a la coleccion por ID
+coleccionRouter.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const coleccion = await getColeccionById(id);
+    res.status(200).json(coleccion);
+  } catch (error) {
+    res.status(404).send({ error: "Error al encontrar la coleccion" });
   }
 });
 //Crear coleccion

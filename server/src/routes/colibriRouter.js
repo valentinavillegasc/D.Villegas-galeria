@@ -4,8 +4,8 @@ const getColibriByName = require("../controllers/Colibries/getColibriByName");
 const createColibri = require("../controllers/Colibries/createColibri");
 const updateColibri = require("../controllers/Colibries/updateColibri");
 const deleteColibri = require("../controllers/Colibries/deletecolibri");
+const getColibriById = require("../controllers/Colibries/getColibriById");
 const uploadMiddleware = require("../handlers/coleccionHandler");
-
 //Traer todos los colibries
 colibriRouter.get("/", async (req, res) => {
   const { name } = req.query;
@@ -16,6 +16,17 @@ colibriRouter.get("/", async (req, res) => {
   } else {
     const allColibries = await getAllColibries();
     return res.status(200).json(allColibries);
+  }
+});
+
+// Traer colibri por ID
+colibriRouter.get("/:id", async (req, res) => {
+  const { id } = req.params;
+  try {
+    const colibri = await getColibriById(id);
+    res.status(200).json(colibri);
+  } catch (error) {
+    res.status(404).send({ error: "Error al encontrar colibri" });
   }
 });
 
