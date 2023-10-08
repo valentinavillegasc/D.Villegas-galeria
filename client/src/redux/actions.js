@@ -6,6 +6,7 @@ import {
   GET_COLIBRIES,
   GET_COLIBRI_BY_NAME,
   GET_COLIBRI_BY_ID,
+  CLEAN_DETAIL,
 } from "./action-types";
 const LINK_API = process.env;
 
@@ -53,4 +54,9 @@ export const getColibriesByName = (name) => {
     const coleccion = await axios.get(`${LINK_API}/colibries?name=${name}`);
     dispatch({ type: GET_COLIBRI_BY_NAME, payload: coleccion.data });
   };
+};
+
+//! Adicionales
+export const cleanDetail = () => {
+  return { type: CLEAN_DETAIL };
 };
