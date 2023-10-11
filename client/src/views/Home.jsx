@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import NavBar from "../components/NavBar";
 import style from "./Estilos/Home.module.css";
-
+import { useDispatch, useSelector } from "react-redux";
+import { getColecciones } from "../redux/actions";
+import CardsColecciones from "../components/CardsColecciones";
 export default function Home() {
+  const colecciones = useSelector((state) => state.allColecciones);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getColecciones());
+  }, [dispatch]);
   return (
-    <div className={style.home}>
+    <div className={style.homeContainer}>
       <NavBar />
-      <div>
-        <h1>Home</h1>
+      <div className={style.home}>
+        <h1>Colecciones</h1>
+        <CardsColecciones colecciones={colecciones} />
+        <button className={style.button}>Ver todos</button>
       </div>
     </div>
   );

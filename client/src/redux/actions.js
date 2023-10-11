@@ -14,8 +14,12 @@ const LINK_API = process.env;
 
 export const getColecciones = () => {
   return async function (dispatch) {
-    const colecciones = await axios.get(`${LINK_API}/colecciones`);
-    dispatch({ type: GET_COLECCIONES, payload: colecciones.data });
+    try {
+      const colecciones = await axios.get(`http://localhost:3001/colecciones`);
+      dispatch({ type: GET_COLECCIONES, payload: colecciones.data });
+    } catch (error) {
+      console.error("Error al obtener colecciones:", error);
+    }
   };
 };
 
