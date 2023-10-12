@@ -4,6 +4,8 @@ import style from "./Estilos/Home.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { getColecciones } from "../redux/actions";
 import CardsColecciones from "../components/CardsColecciones";
+import { Link } from "react-router-dom";
+
 export default function Home() {
   const colecciones = useSelector((state) => state.allColecciones);
   const dispatch = useDispatch();
@@ -17,7 +19,9 @@ export default function Home() {
       <div className={style.home}>
         <h1>Colecciones</h1>
         <CardsColecciones colecciones={colecciones} />
-        <button className={style.button}>Ver todos</button>
+        <Link to="/colibries">
+          <button className={style.button}>Ver todos</button>
+        </Link>
       </div>
     </div>
   );
