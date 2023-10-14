@@ -11,7 +11,7 @@ import {
 const initialState = {
   allColecciones: [],
   colecciones: [],
-  coleccion: [],
+  coleccionId: [],
   allColibries: [],
   colibries: [],
   colibriDetail: [],
@@ -24,7 +24,7 @@ const reducer = (state = initialState, action) => {
     case GET_COLECCIONES:
       return { ...state, allColecciones: action.payload };
     case GET_COLECCION_BY_ID:
-      return { ...state, coleccion: action.payload };
+      return { ...state, coleccionId: action.payload };
     case GET_COLECCION_BY_NAME:
       return { ...state, colecciones: action.payload };
     //Colibries
