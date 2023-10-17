@@ -15,6 +15,11 @@ export default function BurgerNav() {
             Biografía
           </Link>
         </li>
+        <li>
+          <Link to="/contacto" className={style.link}>
+            Contacto
+          </Link>
+        </li>
       </ul>
     </div>
   );

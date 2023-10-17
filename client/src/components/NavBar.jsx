@@ -26,6 +26,9 @@ export default function NavBar() {
         <Link to="/biografia" className={style.button}>
           Biografía
         </Link>
+        <Link to="/contacto" className={style.button}>
+          Contacto
+        </Link>
       </div>
     </div>
   );

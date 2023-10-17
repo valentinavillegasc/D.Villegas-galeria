@@ -6,6 +6,7 @@ import Form from "./views/Form";
 import Colibries from "./views/Colibries";
 import DetailColeccion from "./views/DetailColeccion";
 import DetailColibri from "./views/DetailColibri";
+import Contacto from "./views/Contacto";
 import { Route, Routes } from "react-router-dom";
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
         <Route path="/colibries" element={<Colibries />} />
         <Route path="/detailColeccion/:id" element={<DetailColeccion />} />
         <Route path="/detailColibri/:id" element={<DetailColibri />} />
+        <Route path="/contacto" element={<Contacto />} />
       </Routes>
     </div>
   );
