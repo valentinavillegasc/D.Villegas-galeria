@@ -1,20 +1,63 @@
 .formulario h1 {
   color: black;
-  font-size: 6rem;
+  font-size: 8rem;
+  margin: 20px;
 }
 
 .formulario {
-  margin-top: 100px;
+  margin: 20px;
 }
 
+.contenedorinputs {
+  background-color: #beeee7;
+  padding: 50px;
+  margin: 0px 50px 0px;
+  border-radius: 20px;
+}
+.contenedorinputs h2 {
+  font-size: 4rem;
+  font-weight: 100;
+  text-align: left;
+}
 .inputs {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
+
+  padding: 20px;
+}
+
+.inputs h2 {
+  font-size: 4rem;
+  font-weight: 100;
+}
+
+.inputs div {
+  display: flex;
+  flex-direction: center;
+  justify-content: center;
+  margin: 20px;
 }
 
 .inputs label {
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-right: 20px;
+}
+
+.inputs input,
+.inputs select,
+.inputs textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  width: 500px;
+}
+
+.inputs textarea {
+  height: 150px;
+}
+
+.errors {
+  color: rgb(106, 9, 9);
 }
