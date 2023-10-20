@@ -1,0 +1,44 @@
+.detalle {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 50px 0px;
+}
+
+.detalle img {
+  width: 500px;
+  margin: 20px;
+  border-radius: 20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  background-color: #cfe9e5;
+  border-radius: 20px;
+  width: 500px;
+  height: 530px;
+  padding: 50px;
+  justify-content: center;
+  align-items: center;
+}
+
+.info h1 {
+  color: black;
+  font-size: 10rem;
+}
+
+.coleccion {
+  font-size: 3rem;
+  margin-bottom: 30px;
+  color: gray;
+  font-weight: 100;
+}
+.fichaTecnica {
+  font-weight: 100;
+  font-size: 2rem;
+  background-color: #d9d9d9;
+  padding: 20px;
+  border-radius: 10px;
+}

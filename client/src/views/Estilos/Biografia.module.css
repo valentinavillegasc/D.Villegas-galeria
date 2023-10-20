@@ -1,0 +1,114 @@
+.biografia {
+  height: 100vh;
+  padding-bottom: 100px;
+}
+
+.infoContainer {
+  display: flex;
+  width: fit-content;
+  flex-direction: row;
+  margin-top: 50px;
+  margin-left: 100px;
+  margin-right: 100px;
+  margin-bottom: 0px;
+}
+
+.fotoContainer {
+  padding-top: 10px;
+}
+
+.foto {
+  border-radius: 10px;
+  width: 700px;
+  height: 550px;
+}
+
+.infoBiografia {
+  padding: 5px;
+  margin-left: 30px;
+}
+
+.nameContainer {
+  margin-bottom: 20px;
+}
+
+.nameContainer h2 {
+  font-size: 4rem;
+  font-weight: 100;
+}
+
+.nameContainer p {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.textoParteDerecha {
+  text-align: justify;
+  font-size: 2rem;
+  font-weight: 90;
+}
+
+.textoParteDerecha p {
+  margin-bottom: 10px;
+}
+.textoDebajoFoto {
+  text-align: justify;
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 300px;
+  margin-left: 100px;
+  margin-right: 100px;
+}
+
+.textoDebajoFoto p {
+  padding-bottom: 10px;
+}
+
+/*Media queries*/
+
+@media (max-width: 767px) {
+  .infoContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 50px 50px 0px;
+  }
+
+  .fotoContainer {
+    margin-bottom: 20px;
+  }
+  .foto {
+    width: 1000px;
+    height: 600px;
+  }
+
+  .nameContainer {
+    margin-bottom: 20px;
+  }
+
+  .nameContainer h2 {
+    font-size: 9rem;
+    font-weight: 100;
+  }
+
+  .nameContainer p {
+    font-size: 2.8rem;
+    padding-bottom: 20px; /* Tamaño de fuente más pequeño para el párrafo */
+  }
+
+  .textoParteDerecha p {
+    margin-bottom: 10px;
+    font-size: 2.5rem;
+    font-weight: 100; /* Tamaño de fuente más pequeño para los párrafos */
+  }
+
+  .textoDebajoFoto {
+    display: flex;
+    flex-direction: column;
+    font-size: 2.5rem;
+    font-weight: 100;
+    margin: 0px 80px;
+    width: 960px;
+    height: 200px;
+  }
+}
