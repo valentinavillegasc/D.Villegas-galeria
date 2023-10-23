@@ -42,3 +42,29 @@
   padding: 20px;
   border-radius: 10px;
 }
+@media (max-width: 768px) {
+  .detalle {
+    flex-direction: column;
+    width: 1040px;
+  }
+  .detalle img {
+    width: 1000px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+  }
+  .info {
+    width: 900px;
+    margin-right: 30px;
+    padding: 50px;
+  }
+  .info h1 {
+    font-size: 11rem;
+    margin-top: 20px;
+  }
+  .coleccion {
+    font-size: 4rem;
+  }
+  .fichaTecnica {
+    font-size: 3rem;
+  }
+}
