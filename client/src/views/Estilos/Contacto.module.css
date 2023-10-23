@@ -15,10 +15,13 @@
   margin: 0px 50px 0px;
   border-radius: 20px;
 }
-.contenedorinputs h1 {
+.titleContainer h1 {
   font-size: 8rem;
   font-weight: 100;
   color: black;
+}
+.colibristicker {
+  display: none;
 }
 .inputs {
   display: flex;
@@ -43,6 +46,7 @@
 .inputs label {
   font-size: 3rem;
   margin-right: 20px;
+  font-weight: 100;
 }
 
 .inputs input,
@@ -97,4 +101,54 @@ button:hover:not(:disabled) {
 button:disabled {
   cursor: auto;
   color: grey;
+}
+
+@media (max-width: 768px) {
+  .colibri {
+    display: none;
+  }
+  .titleContainer {
+    font-size: 11rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .colibristicker {
+    display: flex;
+    width: 200px;
+  }
+
+  .formulario {
+    width: 1040px;
+    margin-left: 40px;
+    margin-top: 100px;
+  }
+  .inputs label {
+    font-size: 7.5rem;
+  }
+
+  .inputs textarea {
+    height: 200px;
+    width: 600px;
+  }
+  .inputs input,
+  .inputs select,
+  .inputs textarea {
+    font-size: 2rem;
+    width: 100%;
+    padding: 20px;
+  }
+  .inputs div {
+    margin: 40px;
+  }
+  .errors {
+    font-size: 3.5rem;
+  }
+  .button {
+    width: 10em;
+    height: 2em;
+    font-size: 3rem;
+    margin-top: 100px;
+  }
 }

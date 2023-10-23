@@ -6,6 +6,7 @@ import { getColibries } from "../redux/actions";
 import axios from "axios";
 import validation from "../validations";
 import colibri from "../assets/Héroe.jpg";
+import colibristicker from "../assets/colibri.png";
 export default function Contacto() {
   const colibries = useSelector((state) => state.allColibries);
   const dispatch = useDispatch();
@@ -48,11 +49,18 @@ export default function Contacto() {
       <NavBar />
       <form className={style.formulario}>
         <div className={style.contenedorinputs}>
-          <h1>Formulario de contacto</h1>
+          <div className={style.titleContainer}>
+            <h1>Formulario de contacto </h1>
+            <img
+              src={colibristicker}
+              alt="Sticker de colibri"
+              className={style.colibristicker}
+            />
+          </div>
           <div className={style.contenedor}>
             <div className={style.inputs}>
               <div>
-                <label htmlFor="name">Nombre completo:</label>
+                <label htmlFor="name">Nombre:</label>
                 <input
                   name="name"
                   type="name"
