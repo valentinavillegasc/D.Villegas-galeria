@@ -1,0 +1,54 @@
+.link {
+  text-decoration: none;
+  color: black;
+}
+.CardColeccion {
+  background-color: #84e0d28a;
+  display: flex;
+  width: fit-content;
+  height: 300px;
+  flex-direction: row;
+  margin: 100px 50px 100px;
+  border-radius: 50px;
+}
+
+.image {
+  border-radius: 10px;
+  margin: 30px 50px 30px;
+}
+
+.info {
+  margin-top: 50px;
+  margin-right: 50px;
+}
+
+.name {
+  font-size: 5rem;
+  font-weight: 100;
+  text-align: left;
+}
+
+.description {
+  font-size: 2.5rem;
+  font-weight: 100;
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .CardColeccion {
+    width: 1000px;
+    height: 400px;
+  }
+  .name {
+    font-size: 4rem;
+    font-weight: 100;
+    text-align: left;
+  }
+  .image {
+    border-radius: 10px;
+  }
+
+  .description {
+    font-size: 2.5rem;
+  }
+}
