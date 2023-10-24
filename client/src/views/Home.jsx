@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getColecciones } from "../redux/actions";
 import CardsColecciones from "../components/CardsColecciones";
 import { Link } from "react-router-dom";
+import Footer from "../components/Footer";
 
 export default function Home() {
   const colecciones = useSelector((state) => state.allColecciones);
@@ -23,6 +24,7 @@ export default function Home() {
           <button className={style.button}>Ver todos</button>
         </Link>
       </div>
+      <Footer />
     </div>
   );
 }

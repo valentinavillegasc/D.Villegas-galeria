@@ -4,6 +4,8 @@ import { useParams } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { getColibriesById, cleanDetail } from "../redux/actions";
 import style from "./Estilos/DetailColibri.module.css";
+import Footer from "../components/Footer";
+
 export default function DetailColibri() {
   const colibri = useSelector((state) => state.colibriDetail);
   const dispatch = useDispatch();
@@ -32,6 +34,7 @@ export default function DetailColibri() {
           <p className={style.fichaTecnica}>{colibri.fichaTecnica}</p>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

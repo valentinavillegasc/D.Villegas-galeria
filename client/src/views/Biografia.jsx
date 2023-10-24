@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import style from "./Estilos/Biografia.module.css";
 import foto from "../assets/FotoBiografia.jpeg";
+import Footer from "../components/Footer";
 
 export default function Biografia() {
   return (
@@ -72,6 +73,7 @@ export default function Biografia() {
           del arte, dejando una marca indeleble en el mundo creativo.
         </p>
       </div>
+      <Footer />
     </div>
   );
 }
