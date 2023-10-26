@@ -7,8 +7,8 @@ import axios from "axios";
 import validation from "../validations";
 import colibri from "../assets/Héroe.jpg";
 import colibristicker from "../assets/colibri.png";
+import SocialMedia from "../components/SocialMedia";
 import Footer from "../components/Footer";
-
 export default function Contacto() {
   const colibries = useSelector((state) => state.allColibries);
   const dispatch = useDispatch();
@@ -113,6 +113,7 @@ export default function Contacto() {
               <button className={style.button} onClick={handleSubmit}>
                 Enviar
               </button>
+              <SocialMedia />
             </div>
             <img className={style.colibri} src={colibri} alt="" />
           </div>

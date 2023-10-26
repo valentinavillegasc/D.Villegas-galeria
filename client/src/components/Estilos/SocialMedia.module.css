@@ -1,0 +1,30 @@
+@media (min-width: 769px) {
+  .socialmediaContainer {
+    display: none !important;
+  }
+}
+@media (max-width: 768px) {
+  .socialmediaContainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .socialmedia {
+    margin-top: 20px;
+  }
+  .icon {
+    width: 100px t;
+    height: 100px;
+    color: white;
+    text-decoration: none;
+    margin: 50px;
+  }
+
+  .socialmedia a .icon {
+    transform: unset !important;
+  }
+
+  p {
+    font-size: 5rem;
+    color: white;
+  }
+}
