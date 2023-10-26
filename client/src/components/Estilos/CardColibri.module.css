@@ -11,6 +11,7 @@
   margin: 20px;
   padding-bottom: 20px;
   align-self: flex-start;
+  pointer-events: none;
 }
 
 .image {
